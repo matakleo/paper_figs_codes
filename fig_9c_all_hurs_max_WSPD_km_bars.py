@@ -63,6 +63,6 @@ lgnd = fig.legend(loc = 'upper center',ncol = 2,frameon = False)
 
 
 
-plt.show()
-
-# plt.savefig('/Users/lmatak/Desktop/leo_python_scripts/Paper_Figs/figs_saved/figure10_wspd_cl_km_bars_xkzm.eps',bbox_inches='tight')
+# plt.show()
+print('saved as: figure10_wspd_cl_km_bars_'+show+'.eps')
+plt.savefig('/Users/lmatak/Desktop/leo_python_scripts/Paper_Figs/figs_saved/figure10_wspd_cl_km_bars_'+show+'.eps',bbox_inches='tight')

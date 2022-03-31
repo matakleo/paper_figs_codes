@@ -83,7 +83,7 @@ cmap_name='my_colors'
 # cmap=plt.get_cmap(
 #     'plasma')
 cmap=plt.get_cmap(
-    'greys')
+    'twilight_shifted')
 # Create a figure
 fig, ax = plt.subplots(nrows=6, ncols=3, figsize=(8.3,10.7),subplot_kw={'projection': crs.PlateCarree()})
 fig.subplots_adjust(wspace=0.000005)

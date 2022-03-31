@@ -65,6 +65,6 @@ lgnd = fig.legend(loc = 'upper center',ncol = 2,frameon = False)
 
 
 
-plt.show()
-
-# plt.savefig('/Users/lmatak/Desktop/leo_python_scripts/Paper_Figs/figs_saved/figure10_wspd_r_bars'+name_text+'.eps',bbox_inches='tight')
+# plt.show()
+print('saved as: figure10_wspd_r_bars'+name_text+'.eps')
+plt.savefig('/Users/lmatak/Desktop/leo_python_scripts/Paper_Figs/figs_saved/figure10_wspd_r_bars'+name_text+'.eps',bbox_inches='tight')

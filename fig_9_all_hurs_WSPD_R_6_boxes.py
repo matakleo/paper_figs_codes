@@ -23,7 +23,7 @@ GS = '8km'
 # Choose between : 'NoTurb', 'Smag2D', 'TKE2D'
 TM = 'NoTurb'
 # Choose between : 'YSU_wrf_42',YSU_lin_63'
-PBLS = ['YSU']
+PBLS = ['MYJ']
 
 # CLS = ['km_0.25_lvl_2','1.0','km_4.0_lvl_2']
 CLS = ['lvl_3','lvl_5','1.0','lvl_7'] 
@@ -68,7 +68,7 @@ for HN in HNS :
 
                 # print(Hurricane_Setting)
                 csv_file = (Input_Dir_1+Hurricane_Setting)
-                print('csv file is ::::: ',csv_file)
+                # print('csv file is ::::: ',csv_file)
                 # you define empty lists which will contain the extracted data from the csv file, and plot them immediatle
                 WSPD = []
                 rads=[]
@@ -103,5 +103,6 @@ plt.rc('legend',fontsize=12)
 
 lgnd = fig.legend(by_label.values(),CLS_names ,loc = 'upper center',ncol = 5,frameon = False)
 
-plt.show()
-# plt.savefig('/Users/lmatak/Desktop/leo_python_scripts/Paper_Figs/figs_saved/figure8_WSPD_R'+name_text+PBLS[0]+'.eps',bbox_inches='tight')
+# plt.show()
+print('saved as: figure8_WSPD_R'+name_text+PBLS[0]+'.eps')
+plt.savefig('/Users/lmatak/Desktop/leo_python_scripts/Paper_Figs/figs_saved/figure8_WSPD_R'+name_text+PBLS[0]+'.eps',bbox_inches='tight')
