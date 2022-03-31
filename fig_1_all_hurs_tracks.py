@@ -20,7 +20,7 @@ ax1.set_extent([-15,-90, 0 , 35])
 
 colors = ['blue', 'black', 'red', 'green', 'orange', 'magenta','yellow']
 
-Hurricanes = ['Dorian','Igor','Iota','Lorenzo','Maria','Teddy']
+Hurricanes = ['Dorian','Igor','Iota','Lorenzo','Maria']
 
 
 
@@ -75,4 +75,4 @@ plt.rc('legend',fontsize=11)
 plt.legend(loc='upper right')
 # plt.savefig('figure1.png',bbox_inches='tight')
 # plt.show()
-# plt.savefig('/Users/lmatak/Desktop/leo_python_scripts/Paper_Figs/figs_saved/figure1.png',bbox_inches='tight')
+plt.savefig('/Users/lmatak/Desktop/leo_python_scripts/Paper_Figs/figs_saved/figure1.png',bbox_inches='tight')

@@ -133,5 +133,5 @@ lgnd = fig.legend(loc = 'lower center',ncol = 4,frameon = False, fontsize=15)
 
 
 
-plt.show()
-# plt.savefig('/Users/lmatak/Desktop/leo_python_scripts/Paper_Figs/figs_saved/figure9_error_bars_lvls.eps',bbox_inches='tight')
+# plt.show()
+plt.savefig('/Users/lmatak/Desktop/leo_python_scripts/Paper_Figs/figs_saved/fig8_error_bars_lvls.eps',bbox_inches='tight')

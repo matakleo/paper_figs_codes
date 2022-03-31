@@ -28,7 +28,7 @@ myj_intensities_lvls,myj_track_lvls,myj_slp_lvls,wind_percentile_myj_lvls,track_
 # print(myj_intensities_lvls)
 BarWidth=0
 column_width=2.5
-LVLS=['cl_km_0.25','Default Case','cl_km_4.0']
+LVLS=['cl_km_0.2','Default Case','cl_km_5.0']
 colors = ['royalblue', 'black', 'red', 'orange', 'magenta','yellow']
 
 for i in range(len(ysu_intensities_lvls[0])):
@@ -134,4 +134,4 @@ lgnd = fig.legend(loc = 'lower center',ncol = 3,frameon = False, fontsize=15)
 
 # plt.show()
 
-plt.savefig('/Users/lmatak/Desktop/leo_python_scripts/Paper_Figs/figs_saved/figure9_error_bars_xkzm.eps',bbox_inches='tight')
+plt.savefig('/Users/lmatak/Desktop/leo_python_scripts/Paper_Figs/figs_saved/fig8b_error_bars_xkzm.eps',bbox_inches='tight')

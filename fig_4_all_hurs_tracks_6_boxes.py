@@ -17,26 +17,28 @@ Real_data_dir='/Users/lmatak/Desktop/leo_simulations/Real_Data'
 Input_Dir = '/Users/lmatak/Desktop/leo_simulations/WRF_Output_PBLHS/diff_hpbls'
 
 # for MYJ 'Maria','Dorian','Iota','Teddy','Lorenzo , Igor
-HNS = ['Iota','Teddy','Dorian','Maria','Igor','Lorenzo']
+HNS = ['Iota','Dorian','Maria','Igor','Lorenzo']
 # Choose between : '2km', '4km', '8km', '16km', '32km'
 GS = '8km'
 # Choose between : 'NoTurb', 'Smag2D', 'TKE2D'
 TM = 'NoTurb'
 
-PBLS = ['YSU']
+PBLS = ['MYJ']
 
 show = 'xkzm'
 # show = 'lvls'
 
-CLS = ['lvl_3','lvl_5','1.0','lvl_7']
+CLS = ['1.0','lvl_3','lvl_5','lvl_7']
+fig_name='_lvls_'
 colors = ['grey', 'blue','green', 'red']
 legend_names=['Real Track','Default Case','HBL - lvl_3_'+PBLS[0],'HBL - lvl_5_'+PBLS[0],'HBL - lvl_7_'+PBLS[0]]
 if show == 'xkzm':
+    fig_name='_xkzm_'
     colors = ['grey', 'blue', 'red']
-    CLS=['km_0.25_lvl_2','1.0','km_4.0_lvl_2']
-    legend_names=['Real Track','Default Case','cl_km_0.25_'+PBLS[0],'cl_km_4.0_'+PBLS[0]]
+    CLS=['1.0','km_0.20','km_5.0']
+    legend_names=['Real Track','Default Case','cl_km_0.2_'+PBLS[0],'cl_km_5.0_'+PBLS[0]]
     if PBLS[0]=='YSU':
-        CLS = ['xkzm_0.25_lvl_2','1.0','xkzm_4.0_lvl_2'] 
+        CLS = ['1.0','xkzm_0.20','xkzm_5.0'] 
 
         
 
@@ -100,6 +102,7 @@ for HN in HNS :
 
                 (Eye_Lats, Eye_Longs) = Extract_Coordinates_2 (Input_Dir_1, Hurricane_Setting,'min_lat', 'min_long')
 
+                print('CL is '+CL+' and color is: '+colors[cls_counter])
 
                 ax[row_count,col_count].plot(Eye_Longs[0:len(Eye_Lats)], Eye_Lats[0:len(Eye_Lats)], color=colors[cls_counter],  marker='.', 
                     linewidth='1.7',markersize='8', transform=ccrs.PlateCarree(), label= (CLS[cls_counter]+PBL))
@@ -112,11 +115,16 @@ for HN in HNS :
         col_count =0
         row_count = 1
 
-handles, labels = fig.gca().get_legend_handles_labels()
+# handles, labels = fig.gca().get_legend_handles_labels()
+h, l = ax[1,1].get_legend_handles_labels()
+plt.rc('legend',fontsize=14)
+ax[1,2].axis("off")
+ax[1,2].legend(h, legend_names,ncol=1,frameon=False)
+# by_label = dict(zip(labels, handles))
+# print(by_label.keys())
 
-by_label = dict(zip(labels, handles))
-plt.rc('legend',fontsize=12)
-lgnd = fig.legend(by_label.values(),legend_names,loc = 'upper center',ncol = 5,frameon = False)
+# lgnd = fig.legend(by_label.values(),legend_names,loc = 'upper center',ncol = 5,frameon = False)
 
 # plt.show()
-plt.savefig('/Users/lmatak/Desktop/leo_python_scripts/Paper_Figs/fig3_tracks_cl_km_YSU.png',bbox_inches='tight')
+print('saved as: fig3_tracks'+fig_name+PBLS[0]+'.png')
+plt.savefig('/Users/lmatak/Desktop/leo_python_scripts/Paper_Figs/figs_saved/fig3_tracks'+fig_name+PBLS[0]+'.png',bbox_inches='tight')

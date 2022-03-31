@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 def gimme_errors(PBL):
     Input_Dir = '/Users/lmatak/Desktop/leo_simulations/WRF_Output_PBLHS/diff_hpbls'
     Real_data_dir='/Users/lmatak/Desktop/leo_simulations/Real_Data'
-    HNS = ['Teddy','Lorenzo','Iota','Dorian','Maria']
+    HNS = ['Igor','Lorenzo','Iota','Dorian','Maria']
     GSS = ['2km','8km','32km']
     TM = 'NoTurb'
     PBLS = PBL

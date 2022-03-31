@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 def gimme_errors_tribars_lvls(PBL):
     Input_Dir = '/Users/lmatak/Desktop/leo_simulations/WRF_Output_PBLHS/diff_hpbls'
     Real_data_dir='/Users/lmatak/Desktop/leo_simulations/Real_Data'
-    HNS = ['Teddy','Maria','Lorenzo','Iota','Dorian','Igor']
+    HNS = ['Maria','Lorenzo','Iota','Dorian','Igor']
     GSS = ['8km']
     TM = 'NoTurb'
     PBLS = PBL
@@ -151,13 +151,13 @@ def gimme_errors_tribars_lvls(PBL):
 def gimme_errors_tribars_xkzm(PBL):
     Input_Dir = '/Users/lmatak/Desktop/leo_simulations/WRF_Output_PBLHS/diff_hpbls'
     Real_data_dir='/Users/lmatak/Desktop/leo_simulations/Real_Data'
-    HNS = ['Teddy','Maria','Lorenzo','Iota','Dorian','Igor']
+    HNS = ['Maria','Lorenzo','Iota','Dorian','Igor']
     GSS = ['8km']
     TM = 'NoTurb'
     PBLS = PBL
-    CLS = ['xkzm_0.25_lvl_2','1.0','xkzm_4.0_lvl_2']
+    CLS = ['xkzm_0.20','1.0','xkzm_5.0']
     if PBL=='MYJ':
-        CLS = ['km_0.25_lvl_2','1.0','km_4.0_lvl_2']
+        CLS = ['km_0.20','1.0','km_5.0']
     list_of_slp_errors=[]
     slp_percentile=[]
     wind_percentile_20 = []

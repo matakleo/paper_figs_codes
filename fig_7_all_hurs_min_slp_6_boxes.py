@@ -17,7 +17,7 @@ Real_data_dir='/Users/lmatak/Desktop/leo_simulations/Real_Data'
 Input_Dir = '/Users/lmatak/Desktop/leo_simulations/WRF_Output_PBLHS/diff_hpbls'
 
 # for MYJ 'Maria','Dorian','Iota','Teddy','Lorenzo , Igor
-HNS = ['Iota','Maria','Dorian','Teddy','Lorenzo','Igor']
+HNS = ['Iota','Maria','Dorian','Lorenzo','Igor']
 # Choose between : '2km', '4km', '8km', '16km', '32km'
 GS = '8km'
 # Choose between : 'NoTurb', 'Smag2D', 'TKE2D'
@@ -26,22 +26,27 @@ TM = 'NoTurb'
 PBLS = ['YSU']
 # PBLS = ['YSU_additional_changs']
 
-CLS = ['1.0','lvl_3','lvl_5','lvl_7'] 
-# CLS=['1.0','xkzm_0.25_lvl_2','xkzm_4.0_lvl_2']
-# CLS = ['1.0','km_0.25_lvl_2','km_4.0_lvl_2']
 Real_data_dir='/Users/lmatak/Desktop/leo_simulations/Real_Data'
 
 Time_idx = '0'
 
 fig, ax = plt.subplots(nrows=2, ncols=3, figsize=(10.8,5.8))
-fig.subplots_adjust(hspace=0.25)
-# fig.tight_layout()
-if CLS[1] == 'lvl_3':
-    name_text='_lvls_'
-    colors = ['grey','blue',  'green', 'red', 'purple', 'magenta','yellow']
-else:
-    name_text='_xkzm_'
-    colors = ['grey','blue',  'red', 'green', 'purple', 'magenta','yellow']
+
+fig.subplots_adjust(hspace=0.25,wspace=0.2)
+show = 'xkzm'
+# show = 'lvls'
+
+CLS = ['1.0','lvl_3','lvl_5','lvl_7']
+fig_name='_lvls_'
+colors = ['grey','blue', 'green', 'red']
+legend_names=['Real Data','Default Case','HBL - lvl_3_'+PBLS[0],'HBL - lvl_5_'+PBLS[0],'HBL - lvl_7_'+PBLS[0]]
+if show == 'xkzm':
+    fig_name='_xkzm_'
+    colors = ['grey','blue',  'red']
+    CLS=['1.0','km_0.20','km_5.0']
+    legend_names=['Real Data','Default Case','cl_km_0.2_'+PBLS[0],'cl_km_5.0_'+PBLS[0]]
+    if PBLS[0]=='YSU':
+        CLS = ['1.0','xkzm_0.20','xkzm_5.0'] 
 Times = [0,6, 12, 18, 24, 30, 36, 42, 48,54,60,66,72,80]
 Real_Winds=[]
 row_count=0
@@ -96,17 +101,12 @@ ax[1,0].set_ylabel('min SLP [mb]')
 ax[1,0].set_xlabel('Time')
 ax[1,1].set_xlabel('Time')
 ax[1,2].set_xlabel('Time')
-handles, labels = fig.gca().get_legend_handles_labels()
+h, l = ax[1,1].get_legend_handles_labels()
+plt.rc('legend',fontsize=14)
+ax[1,2].axis("off")
+ax[1,2].legend(h, legend_names,ncol=1,frameon=False)
+# plt.show()
 
-by_label = dict(zip(labels, handles))
-plt.rc('legend',fontsize=12)
-if CLS[1]!='lvl_3':
-    legend_names=['Real Data','Default Case','cl_km_0.25_'+PBLS[0],'cl_km_4.0_'+PBLS[0]]
-    
-else:
-    legend_names=['Real Data','Default Case','HBL - lvl_3_'+PBLS[0],'HBL - lvl_5_'+PBLS[0],'HBL - lvl_7_'+PBLS[0]]
-lgnd = fig.legend(by_label.values(),legend_names ,loc = 'upper center',ncol = 5,frameon = False)
-
-plt.show()
-# plt.savefig('/Users/lmatak/Desktop/leo_python_scripts/Paper_Figs/figure7_min_slp_lvls_'+PBLS[0]+'.eps',bbox_inches='tight')
+print('saved as: fig7_min_slp_boxes'+fig_name+PBLS[0]+'.png')
+plt.savefig('/Users/lmatak/Desktop/leo_python_scripts/Paper_Figs/figs_saved/fig7_min_slp_boxes'+fig_name+PBLS[0]+'.png',bbox_inches='tight')
 # plt.show()
