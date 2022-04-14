@@ -13,7 +13,7 @@ ax1= fig.add_subplot(gs[:,0:2])
 ax2= fig.add_subplot(gs[:,2:4])
 plt.rc('font', family='serif')
 
-
+#get data
 ysu_intensities,ysu_track,wind_percentile_ysu,track_percentile_ysu = gimme_errors('YSU')
 myj_intensities,myj_track,wind_percentile_myj,track_percentile_myj = gimme_errors('MYJ')
 
